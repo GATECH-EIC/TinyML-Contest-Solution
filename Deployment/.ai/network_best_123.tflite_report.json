@@ -1,0 +1,333 @@
+{
+    "_allocate_inputs": 4,
+    "_allocate_outputs": 4,
+    "cli_parameters": "generate --name network -m E:/SynologyDrive/\u4f1a\u8bae\u4e0e\u6bd4\u8d5b/IEEE TinyML Design Contest at ICCAD/Exported_models/best_123.tflite --type tflite --compression low --verbosity 1 --workspace C:\\Users\\17254\\AppData\\Local\\Temp\\mxAI_workspace135930659892980015841815180597424301 --output C:\\Users\\17254\\.stm32cubemx\\network_output --allocate-inputs --allocate-outputs",
+    "cli_version": {
+        "major": 1,
+        "micro": 0,
+        "minor": 6
+    },
+    "cli_version_str": "1.6.0",
+    "compression": {
+        "factor": 2.563380281690141,
+        "layers": {
+            "dense_3_weights": 4.0
+        }
+    },
+    "date_time": "Fri Sep 30 18:50:57 2022",
+    "error": 0,
+    "error_str": [],
+    "exec_cmd": "generate",
+    "exec_duration": 0.0,
+    "hash": "8f18d5356eb22a99b22035a83171dcf4",
+    "inputs": [
+        "serving_default_input_1240"
+    ],
+    "layers": [
+        {
+            "c_id": [],
+            "extras": {
+                "n_macc": 0,
+                "n_params": 0,
+                "psize": 0,
+                "rom_output": {
+                    "c_size": 5000,
+                    "fmt": {
+                        "format": "float"
+                    },
+                    "shape": [
+                        1250,
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                "rom_size": 0
+            },
+            "id": 0,
+            "inputs": [],
+            "name": "serving_default_input_1240",
+            "original": "",
+            "type": "Input"
+        },
+        {
+            "c_id": [],
+            "extras": {
+                "n_macc": 0,
+                "n_params": 0,
+                "psize": 0,
+                "rom_size": 0
+            },
+            "id": 0,
+            "inputs": [
+                "serving_default_input_1240"
+            ],
+            "name": "reshape_0",
+            "original": "EXPAND_DIMS",
+            "type": "Reshape"
+        },
+        {
+            "c_id": [
+                0
+            ],
+            "extras": {
+                "n_macc": 9438,
+                "n_params": 258,
+                "psize": 1032,
+                "rom_output": {
+                    "c_size": 444,
+                    "fmt": {
+                        "format": "float"
+                    },
+                    "shape": [
+                        1,
+                        37,
+                        3,
+                        1
+                    ]
+                },
+                "rom_size": 1032
+            },
+            "id": 1,
+            "inputs": [
+                "reshape_0"
+            ],
+            "name": "conv2d_1",
+            "original": "CONV_2D",
+            "type": "Conv2D"
+        },
+        {
+            "c_id": [],
+            "extras": {
+                "n_macc": 111,
+                "n_params": 0,
+                "psize": 0,
+                "rom_size": 0
+            },
+            "id": 1,
+            "inputs": [
+                "conv2d_1"
+            ],
+            "name": "nl_1_nl",
+            "original": "CONV_2D",
+            "type": "Nonlinearity"
+        },
+        {
+            "c_id": [],
+            "extras": {
+                "n_macc": 0,
+                "n_params": 0,
+                "psize": 0,
+                "rom_size": 0
+            },
+            "id": 2,
+            "inputs": [
+                "nl_1_nl"
+            ],
+            "name": "reshape_2",
+            "original": "RESHAPE",
+            "type": "Reshape"
+        },
+        {
+            "c_id": [
+                1,
+                2
+            ],
+            "extras": {
+                "n_macc": 2240,
+                "n_params": 2240,
+                "psize": 8960,
+                "rom_output": {
+                    "c_size": 80,
+                    "fmt": {
+                        "format": "float"
+                    },
+                    "shape": [
+                        1,
+                        1,
+                        20,
+                        1
+                    ]
+                },
+                "rom_size": 3324
+            },
+            "id": 3,
+            "inputs": [
+                "reshape_2"
+            ],
+            "name": "dense_3",
+            "original": "FULLY_CONNECTED",
+            "type": "Dense"
+        },
+        {
+            "c_id": [],
+            "extras": {
+                "n_macc": 20,
+                "n_params": 0,
+                "psize": 0,
+                "rom_output": {
+                    "c_size": 80,
+                    "fmt": {
+                        "format": "float"
+                    },
+                    "shape": [
+                        1,
+                        1,
+                        20,
+                        1
+                    ]
+                },
+                "rom_size": 0
+            },
+            "id": 3,
+            "inputs": [
+                "dense_3"
+            ],
+            "name": "nl_3_nl",
+            "original": "FULLY_CONNECTED",
+            "type": "Nonlinearity"
+        },
+        {
+            "c_id": [
+                3,
+                4
+            ],
+            "extras": {
+                "n_macc": 210,
+                "n_params": 210,
+                "psize": 840,
+                "rom_output": {
+                    "c_size": 40,
+                    "fmt": {
+                        "format": "float"
+                    },
+                    "shape": [
+                        1,
+                        1,
+                        10,
+                        1
+                    ]
+                },
+                "rom_size": 840
+            },
+            "id": 4,
+            "inputs": [
+                "nl_3_nl"
+            ],
+            "name": "dense_4",
+            "original": "FULLY_CONNECTED",
+            "type": "Dense"
+        },
+        {
+            "c_id": [],
+            "extras": {
+                "n_macc": 10,
+                "n_params": 0,
+                "psize": 0,
+                "rom_output": {
+                    "c_size": 40,
+                    "fmt": {
+                        "format": "float"
+                    },
+                    "shape": [
+                        1,
+                        1,
+                        10,
+                        1
+                    ]
+                },
+                "rom_size": 0
+            },
+            "id": 4,
+            "inputs": [
+                "dense_4"
+            ],
+            "name": "nl_4_nl",
+            "original": "FULLY_CONNECTED",
+            "type": "Nonlinearity"
+        },
+        {
+            "c_id": [
+                5
+            ],
+            "extras": {
+                "n_macc": 22,
+                "n_params": 22,
+                "psize": 88,
+                "rom_output": {
+                    "c_size": 8,
+                    "fmt": {
+                        "format": "float"
+                    },
+                    "shape": [
+                        1,
+                        1,
+                        2,
+                        1
+                    ]
+                },
+                "rom_size": 88
+            },
+            "id": 5,
+            "inputs": [
+                "nl_4_nl"
+            ],
+            "name": "dense_5",
+            "original": "FULLY_CONNECTED",
+            "type": "Dense"
+        }
+    ],
+    "model_files": [
+        "E:\\SynologyDrive\\\u4f1a\u8bae\u4e0e\u6bd4\u8d5b\\IEEE TinyML Design Contest at ICCAD\\Exported_models\\best_123.tflite"
+    ],
+    "model_n_params": 2730,
+    "model_name": "best_123",
+    "model_size": 10920,
+    "model_type": "tflite",
+    "name": "network",
+    "outputs": [
+        "dense_5"
+    ],
+    "ram_io_size": [
+        5000,
+        8
+    ],
+    "ram_size": [
+        5444,
+        5444
+    ],
+    "report_version": 1.1,
+    "rom_cfact": 1.0,
+    "rom_heap_inspector": 2048,
+    "rom_inputs": [
+        {
+            "c_size": 5000,
+            "c_type": "float",
+            "name": "serving_default_input_1240"
+        }
+    ],
+    "rom_n_macc": 12051,
+    "rom_outputs": [
+        {
+            "c_size": 8,
+            "c_type": "float",
+            "name": "dense_5"
+        }
+    ],
+    "rom_size": 5284,
+    "strategy": "heap_overlay",
+    "tools_api_version": {
+        "major": 1,
+        "micro": 0,
+        "minor": 6
+    },
+    "tools_version": {
+        "extra": "RC5",
+        "major": 7,
+        "micro": 0,
+        "minor": 2
+    },
+    "val_error": -1.0,
+    "val_error_desc": "None (None) #-1",
+    "val_metrics": []
+}
